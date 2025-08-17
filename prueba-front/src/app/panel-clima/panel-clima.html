@@ -1,0 +1,15 @@
+<div class="weather-container" [ngClass]="getWeatherInfo().bg">
+  <div class="inputs">
+    <label>🌍 Latitud: <input type="number" [(ngModel)]="lat"></label>
+    <label>🌍 Longitud: <input type="number" [(ngModel)]="lon"></label>
+    <button (click)="loadWeather()">Consultar</button>
+  </div>
+
+  <div class="card" *ngIf="weatherData">
+    <div class="icon">{{ getWeatherInfo().icon }}</div>
+    <h2>{{ getWeatherInfo().desc }}</h2>
+    <p class="temp">{{ weatherData.temperature }}°C</p>
+    <p>💨 Viento: {{ weatherData.windspeed }} km/h</p>
+    <p>🕒 {{ weatherData.time | date:'short' }}</p>
+  </div>
+</div>
