@@ -1,4 +1,93 @@
-#map {
-  height: 500px; /* o el alto que necesites */
-  width: 100%;
+.map-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
 }
+
+.map-wrapper {
+  display: flex;
+  flex-direction: column; /* Para que el mapa y el botón queden en columna */
+  align-items: center;
+}
+
+.map {
+  width: 400px; /* Ajusta el tamaño que quieras */
+  height: 400px;
+  border: 2px solid #4CAF50;
+  border-radius: 10px;
+  margin-bottom: 5px; /* Espacio entre mapa y botón */
+}
+
+.btn-buscar {
+  background: linear-gradient(135deg, #4f46e5, #3b82f6); /* degradado azul */
+  color: white;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.btn-buscar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #6366f1, #2563eb); /* cambia degradado al hover */
+}
+
+.btn-buscar:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.label-lote {
+  font-weight: 600;
+  background: rgba(255,255,255,0.85);
+  border-radius: 6px;
+  padding: 2px 6px;
+  border: 1px solid #ddd;
+}
+
+.weather-card {
+  width: 400px;
+  padding: 10px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #5eb4ff 0%, #329499 100%);
+  color: #fff;
+  text-align: center;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+.weather-card h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.weather-card h3 {
+  margin: 15px 0 5px 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.weather-card p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.weather-icon {
+  font-size: 20px;
+  margin: 15px 0;
+}
+

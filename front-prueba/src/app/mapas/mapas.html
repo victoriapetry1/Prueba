@@ -1,1 +1,17 @@
-<div id="map"></div>
+<div class="map-container">
+  <div *ngFor="let mapa of mapas; trackBy: trackById" class="map-wrapper">
+    
+    <div class="weather-card" *ngIf="weatherData[mapa.id]">
+      <h2>Clima actual</h2>
+      <div class="weather-icon">{{ getWeatherIcon(weatherData[mapa.id].weathercode) }} {{ weatherData[mapa.id].temperature_2m }} °C  {{ getWeatherDescription(weatherData[mapa.id].weathercode) }}</div>
+    </div>
+
+    <div [id]="mapa.id" class="map"></div>
+    <button class="btn-buscar" (click)="ingresarCoordenadas(mapa.id)">🔍 Buscar</button>
+    
+    <div class="acciones">
+      <button (click)="cambiarNombre()" class="btn-buscar">✏️ Cambiar nombre</button>
+      <button (click)="cambiarColor()" class="btn-buscar">🎨 Cambiar color</button>
+    </div>
+  </div>
+</div>
