@@ -1,4 +1,5 @@
 <div class="weather-card" *ngIf="weatherData">
   <h2>Clima actual</h2>
   <div class="weather-icon">{{ getWeatherIcon(weatherData.weathercode) }} {{ weatherData.temperature_2m }} °C  {{ getWeatherDescription(weatherData.weathercode) }}</div> <!-- Podés cambiar dinámicamente -->
+  <button class="btn" (click)="abrirMapa()">Abrir mapa en Swal</button>
 </div>
