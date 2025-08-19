@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Output } from '@angular/core';
 import * as L from 'leaflet';
 import 'leaflet-draw';
 import * as turf from '@turf/turf';
@@ -12,6 +12,8 @@ import * as turf from '@turf/turf';
 export class MapaParcela implements AfterViewInit{
   private map!: L.Map;
    private drawnItems = new L.FeatureGroup();
+
+  @Output() mouseCoords = new EventEmitter<{ lat: number; lon: number }>();
 
    ngAfterViewInit(): void {
     this.initMap();
@@ -29,7 +31,13 @@ export class MapaParcela implements AfterViewInit{
     }).addTo(this.map);
 
     this.drawnItems.addTo(this.map);
+
+   // 🔹 Capturar movimiento del mouse y emitir coords
+    this.map.on('mousemove', (e: L.LeafletMouseEvent) => {
+      this.mouseCoords.emit({ lat: e.latlng.lat, lon: e.latlng.lng });
+    });
   }
+  
 
   private initDrawControl(): void {
     const drawControl = new L.Control.Draw({

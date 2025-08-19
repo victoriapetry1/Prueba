@@ -1,57 +1,26 @@
 .weather-container {
-  min-height: 100vh;
-  padding: 2rem;
+  position: fixed;       /* siempre visible */
+  bottom: 20px;          /* separación desde abajo */
+  right: 20px;           /* separación desde la derecha */
+  width: 280px;          /* ancho fijo */
+  z-index: 1000;         /* para que quede encima del resto */
   text-align: center;
-  transition: background 0.5s ease-in-out;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
-
-/* Fondos dinámicos */
-.sunny { background: linear-gradient(to top, #fddb92, #d1fdff); }
-.cloudy { background: linear-gradient(to top, #d7d2cc, #304352); }
-.rainy  { background: linear-gradient(to top, #4facfe, #00f2fe); }
-.storm  { background: linear-gradient(to top, #2c3e50, #4ca1af); }
-.default { background: #eceff1; }
-
-.inputs {
-  margin-bottom: 1.5rem;
-}
-
-.inputs input {
-  margin: 0 0.5rem;
-  padding: 0.4rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-button {
-  padding: 0.6rem 1.2rem;
-  border: none;
-  border-radius: 10px;
-  background: #0078ff;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
-button:hover { background: #005fcc; }
 
 .card {
   background: white;
   border-radius: 20px;
-  padding: 2rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  max-width: 300px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   transition: transform 0.3s ease;
 }
 .card:hover { transform: scale(1.05); }
 
 .icon {
-  font-size: 5rem;
+  font-size: 3.5rem;
   margin-bottom: 0.5rem;
 }
 .temp {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
 }

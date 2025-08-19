@@ -1,4 +1,4 @@
-import { Component , OnInit} from '@angular/core';
+import { Component , OnChanges, OnInit, Input, SimpleChanges} from '@angular/core';
 import { weatherService } from '../services/clima.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -9,10 +9,10 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './panel-clima.html',
   styleUrl: './panel-clima.css'
 })
-export class PanelClima implements OnInit{
+export class PanelClima implements OnInit, OnChanges{
   weatherData: any;
-  lat : number = 0;  
-  lon : number = 0;
+  @Input() lat!: number;
+  @Input() lon!: number;
 
   weatherCodes: Record<number, { icon: string; desc: string; bg: string }> = {
     0: { icon: '☀️', desc: 'Despejado', bg: 'sunny' },
@@ -26,6 +26,9 @@ export class PanelClima implements OnInit{
 
 
   constructor(private weatherService: weatherService) {}
+  ngOnChanges(changes: SimpleChanges): void {
+    throw new Error('Method not implemented.');
+  }
 
   ngOnInit() {
     this.loadWeather();
